@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Campus - Dashboard</title>
+  <link rel="stylesheet" href="css/styele.css">
+</head>
+<body>
+
+<!-- NAVBAR (Consistency & Navigation) -->
+<nav>
+  <div><strong>Smart Campus</strong></div>
+  <div>
+    <a href="index.html">Home</a>
+    <a href="tasks.html">Tasks</a>
+    <a href="library.html">Library</a>
+    <a href="store.html">Store</a>
+    <a href="profile.html">Profile</a>
+  </div>
+</nav>
+
+<div class="container">
+
+  <!-- DASHBOARD (Visibility of system status) -->
+  <div class="card">
+    <h2>Dashboard</h2>
+    <p>Welcome to Smart Campus Life System</p>
+    <p>You have <strong id="taskCount">0</strong> tasks today</p>
+  </div>
+
+  <!-- QUICK ACTIONS (Efficiency & Navigation) -->
+  <div class="card">
+    <h3>Quick Actions</h3>
+    <div class="grid">
+      <a href="tasks.html"><button class="btn-primary">Manage Tasks</button></a>
+      <a href="library.html"><button class="btn-primary">Search Library</button></a>
+      <a href="store.html"><button class="btn-primary">Go to Store</button></a>
+    </div>
+  </div>
+
+  <!-- HCI FEATURES DISPLAY (For marking) -->
+  <div class="card">
+    <h3>HCI Features Demonstrated</h3>
+    <ul>
+      <li>Metaphors: Task list, Cart, Library</li>
+      <li>Direct Manipulation: Buttons and interactions</li>
+      <li>Feedback: Notifications</li>
+      <li>Consistency: Same layout across pages</li>
+      <li>Accessibility: Clean UI, readable text</li>
+    </ul>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
