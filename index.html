@@ -3,56 +3,66 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Smart Campus - Dashboard</title>
+  <title>Smart Campus Life</title>
   <link rel="stylesheet" href="css/styele.css">
 </head>
 <body>
 
-<!-- NAVBAR (Consistency & Navigation) -->
-<nav>
-  <div><strong>Smart Campus</strong></div>
-  <div>
-    <a href="index.html">Home</a>
-    <a href="tasks.html">Tasks</a>
-    <a href="library.html">Library</a>
-    <a href="store.html">Store</a>
-    <a href="profile.html">Profile</a>
-  </div>
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="logo">🎓 Smart Campus</div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="tasks.html">Tasks</a></li>
+    <li><a href="library.html">Library</a></li>
+    <li><a href="store.html">Store</a></li>
+    <li><a href="profile.html">Profile</a></li>
+  </ul>
 </nav>
 
-<div class="container">
-
-  <!-- DASHBOARD (Visibility of system status) -->
-  <div class="card">
-    <h2>Dashboard</h2>
-    <p>Welcome to Smart Campus Life System</p>
-    <p>You have <strong id="taskCount">0</strong> tasks today</p>
+<!-- HERO SECTION -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>Manage Your Campus Life Smarter</h1>
+    <p>Organize tasks, access library resources, and shop campus essentials—all in one place.</p>
+    <a href="tasks.html" class="btn-primary">Get Started</a>
   </div>
+</section>
 
-  <!-- QUICK ACTIONS (Efficiency & Navigation) -->
+<!-- DASHBOARD OVERVIEW -->
+<section class="dashboard">
   <div class="card">
-    <h3>Quick Actions</h3>
-    <div class="grid">
-      <a href="tasks.html"><button class="btn-primary">Manage Tasks</button></a>
-      <a href="library.html"><button class="btn-primary">Search Library</button></a>
-      <a href="store.html"><button class="btn-primary">Go to Store</button></a>
-    </div>
+    <h3>📌 Tasks</h3>
+    <p id="taskCount">0 Tasks Pending</p>
   </div>
-
-  <!-- HCI FEATURES DISPLAY (For marking) -->
   <div class="card">
-    <h3>HCI Features Demonstrated</h3>
-    <ul>
-      <li>Metaphors: Task list, Cart, Library</li>
-      <li>Direct Manipulation: Buttons and interactions</li>
-      <li>Feedback: Notifications</li>
-      <li>Consistency: Same layout across pages</li>
-      <li>Accessibility: Clean UI, readable text</li>
-    </ul>
+    <h3>📚 Library</h3>
+    <p>Search books instantly</p>
   </div>
+  <div class="card">
+    <h3>🛒 Store</h3>
+    <p>Buy campus essentials</p>
+  </div>
+</section>
 
-</div>
+<!-- FEATURES -->
+<section class="features">
+  <h2>HCI Features Demonstrated</h2>
+  <div class="feature-grid">
+    <div class="card">Metaphors (Cart, Library, Tasks)</div>
+    <div class="card">Direct Manipulation</div>
+    <div class="card">Feedback System</div>
+    <div class="card">Consistency</div>
+    <div class="card">Accessibility</div>
+    <div class="card">Error Handling</div>
+  </div>
+</section>
 
-<script src="script.js"></script>
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Smart Campus Life System | Designed with HCI Principles</p>
+</footer>
+
+<script src="js/script.js"></script>
 </body>
 </html>
