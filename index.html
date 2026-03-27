@@ -8,60 +8,99 @@
 </head>
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar">
-  <div class="logo">🎓 Smart Campus</div>
-  <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="tasks.html">Tasks</a></li>
-    <li><a href="library.html">Library</a></li>
-    <li><a href="store.html">Store</a></li>
-    <li><a href="profile.html">Profile</a></li>
-  </ul>
-</nav>
+<div class="container">
 
-<!-- HERO SECTION -->
-<section class="hero">
-  <div class="hero-content">
-    <h1>Manage Your Campus Life Smarter</h1>
-    <p>Organize tasks, access library resources, and shop campus essentials—all in one place.</p>
-    <a href="tasks.html" class="btn-primary">Get Started</a>
-  </div>
-</section>
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <h2>🎓 Campus</h2>
+    <nav>
+      <a class="active" href="index.html">Dashboard</a>
+      <a href="tasks.html">Tasks</a>
+      <a href="library.html">Library</a>
+      <a href="store.html">Store</a>
+      <a href="profile.html">Profile</a>
+      <a href="settings.html">Settings</a>
+    </nav>
+  </aside>
 
-<!-- DASHBOARD OVERVIEW -->
-<section class="dashboard">
-  <div class="card">
-    <h3>📌 Tasks</h3>
-    <p id="taskCount">0 Tasks Pending</p>
-  </div>
-  <div class="card">
-    <h3>📚 Library</h3>
-    <p>Search books instantly</p>
-  </div>
-  <div class="card">
-    <h3>🛒 Store</h3>
-    <p>Buy campus essentials</p>
-  </div>
-</section>
+  <!-- Main -->
+  <main class="main">
 
-<!-- FEATURES -->
-<section class="features">
-  <h2>HCI Features Demonstrated</h2>
-  <div class="feature-grid">
-    <div class="card">Metaphors (Cart, Library, Tasks)</div>
-    <div class="card">Direct Manipulation</div>
-    <div class="card">Feedback System</div>
-    <div class="card">Consistency</div>
-    <div class="card">Accessibility</div>
-    <div class="card">Error Handling</div>
-  </div>
-</section>
+    <!-- Topbar -->
+    <header class="topbar">
+      <input type="text" placeholder="🔍 Search anything...">
+      <div class="top-actions">
+        <button onclick="toggleDarkMode()">🌙</button>
+        <img src="https://i.pravatar.cc/40" class="avatar" alt="prof">
+      </div>
+    </header>
 
-<!-- FOOTER -->
-<footer>
-  <p>© 2026 Smart Campus Life System | Designed with HCI Principles</p>
-</footer>
+    <!-- Welcome -->
+    <section class="welcome">
+      <h1>Welcome Back, Student 👋</h1>
+      <p>Here’s what’s happening today on campus.</p>
+    </section>
+
+    <!-- Stats -->
+    <section class="cards">
+      <div class="card">
+        <h3>📚 Books</h3>
+        <p>3 Borrowed</p>
+      </div>
+      <div class="card">
+        <h3>✅ Tasks</h3>
+        <p>5 Pending</p>
+      </div>
+      <div class="card">
+        <h3>💰 Balance</h3>
+        <p>KES 1200</p>
+      </div>
+      <div class="card">
+        <h3>📅 Classes</h3>
+        <p>2 Today</p>
+      </div>
+    </section>
+
+    <!-- Quick Actions -->
+    <section class="actions">
+      <h2>Quick Actions</h2>
+      <div class="action-buttons">
+        <button onclick="showNotification('Task Created!')">➕ Add Task</button>
+        <button onclick="showNotification('Book Reserved!')">📖 Reserve Book</button>
+        <button onclick="showNotification('Payment Successful!')">💳 Pay Fees</button>
+      </div>
+    </section>
+
+    <!-- Activity + Schedule -->
+    <section class="grid">
+
+      <!-- Recent Activity -->
+      <div class="panel">
+        <h2>Recent Activity</h2>
+        <ul>
+          <li>✅ Completed Assignment</li>
+          <li>📚 Borrowed “HCI Basics”</li>
+          <li>💰 Paid KES 500</li>
+        </ul>
+      </div>
+
+      <!-- Today's Schedule -->
+      <div class="panel">
+        <h2>Today’s Schedule</h2>
+        <ul>
+          <li>📖 8:00 AM – Database Class</li>
+          <li>💻 11:00 AM – Programming Lab</li>
+          <li>📊 2:00 PM – MIS Lecture</li>
+        </ul>
+      </div>
+
+    </section>
+
+  </main>
+</div>
+
+<!-- Toast -->
+<div id="toast"></div>
 
 <script src="js/script.js"></script>
 </body>

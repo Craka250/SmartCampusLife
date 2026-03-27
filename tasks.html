@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tasks - Smart Campus</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <h2>🎓 Campus</h2>
+    <nav>
+      <a href="index.html">Dashboard</a>
+      <a class="active" href="tasks.html">Tasks</a>
+      <a href="library.html">Library</a>
+      <a href="store.html">Store</a>
+      <a href="profile.html">Profile</a>
+      <a href="settings.html">Settings</a>
+    </nav>
+  </aside>
+
+  <!-- Main -->
+  <main class="main">
+
+    <!-- Topbar -->
+    <header class="topbar">
+      <h2>Task Manager</h2>
+      <button onclick="toggleDarkMode()">🌙</button>
+    </header>
+
+    <!-- Add Task -->
+    <section class="task-form">
+      <h3>Add New Task</h3>
+      <form id="taskForm">
+        <input type="text" id="taskTitle" placeholder="Task title" required>
+        
+        <input type="date" id="taskDate" required>
+
+        <select id="taskPriority">
+          <option value="low">Low Priority</option>
+          <option value="medium">Medium Priority</option>
+          <option value="high">High Priority</option>
+        </select>
+
+        <button type="submit">➕ Add Task</button>
+      </form>
+    </section>
+
+    <!-- Task List -->
+    <section class="task-list">
+      <h3>Your Tasks</h3>
+      <div id="tasksContainer"></div>
+    </section>
+
+  </main>
+</div>
+
+<!-- Toast -->
+<div id="toast"></div>
+
+<script src="js/script.js"></script>
+</body>
+</html>

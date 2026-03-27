@@ -1,11 +1,13 @@
-// TASK COUNT (for dashboard preview)
-let tasks = [];
+function showNotification(message) {
+  const toast = document.getElementById("toast");
+  toast.innerText = message;
+  toast.style.display = "block";
 
-function updateTaskCount(){
-  let count = document.getElementById('taskCount');
-  if(count){
-    count.innerText = tasks.length + ' Tasks Pending';
-  }
+  setTimeout(() => {
+    toast.style.display = "none";
+  }, 3000);
 }
 
-updateTaskCount();
+function toggleDarkMode() {
+  document.body.classList.toggle("dark");
+}
