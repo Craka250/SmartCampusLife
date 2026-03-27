@@ -284,3 +284,49 @@ button:hover {
 .dark .book {
   border-color: #334155;
 }
+
+/* Product Card */
+.product {
+  background: white;
+  padding: 15px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.product h4 {
+  margin-bottom: 10px;
+}
+
+/* Cart Item */
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.cart-actions button {
+  margin-left: 5px;
+}
+
+/* Dark Mode */
+.dark .product {
+  background: #1e293b;
+}
+
+/* Auth Page */
+.auth-container {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-box {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}

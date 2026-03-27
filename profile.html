@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile - Smart Campus</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="container">
+
+  <aside class="sidebar">
+    <h2>🎓 Campus</h2>
+    <nav>
+      <a href="index.html">Dashboard</a>
+      <a href="tasks.html">Tasks</a>
+      <a href="library.html">Library</a>
+      <a href="store.html">Store</a>
+      <a class="active" href="profile.html">Profile</a>
+      <a href="settings.html">Settings</a>
+    </nav>
+  </aside>
+
+  <main class="main">
+
+    <header class="topbar">
+      <h2>👤 Profile</h2>
+      <button onclick="toggleDarkMode()">🌙</button>
+    </header>
+
+    <section class="task-form">
+      <h3>Your Information</h3>
+
+      <form id="profileForm">
+        <input type="text" id="name" placeholder="Full Name" required>
+        <input type="email" id="emailProfile" placeholder="Email" required>
+        <input type="text" id="course" placeholder="Course">
+        
+        <button type="submit">💾 Save Profile</button>
+      </form>
+    </section>
+
+  </main>
+</div>
+
+<div id="toast"></div>
+
+<script src="js/script.js"></script>
+</body>
+</html>

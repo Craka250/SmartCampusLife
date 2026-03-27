@@ -268,3 +268,171 @@ function updateBookStats() {
 
 // INIT
 renderBooks();
+
+// STORE SYSTEM
+
+let products = [
+  { id: 1, name: "Notebook", price: 100 },
+  { id: 2, name: "Pen", price: 20 },
+  { id: 3, name: "Backpack", price: 1500 },
+  { id: 4, name: "Calculator", price: 800 }
+];
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+const productsContainer = document.getElementById("productsContainer");
+const cartContainer = document.getElementById("cartContainer");
+
+// RENDER PRODUCTS
+function renderProducts() {
+  if (!productsContainer) return;
+
+  productsContainer.innerHTML = "";
+
+  products.forEach(p => {
+    const div = document.createElement("div");
+    div.className = "product";
+
+    div.innerHTML = `
+      <h4>${p.name}</h4>
+      <p>KES ${p.price}</p>
+      <button onclick="addToCart(${p.id})">Add to Cart</button>
+    `;
+
+    productsContainer.appendChild(div);
+  });
+}
+
+// ADD TO CART
+function addToCart(id) {
+  const item = cart.find(i => i.id === id);
+
+  if (item) {
+    item.qty++;
+  } else {
+    cart.push({ id, qty: 1 });
+  }
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+  renderCart();
+  showNotification("Added to cart!");
+}
+
+// RENDER CART
+function renderCart() {
+  if (!cartContainer) return;
+
+  cartContainer.innerHTML = "";
+
+  let total = 0;
+
+  cart.forEach(item => {
+    const product = products.find(p => p.id === item.id);
+    total += product.price * item.qty;
+
+    const div = document.createElement("div");
+    div.className = "cart-item";
+
+    div.innerHTML = `
+      <span>${product.name} (x${item.qty})</span>
+      <div class="cart-actions">
+        <button onclick="changeQty(${item.id}, 1)">➕</button>
+        <button onclick="changeQty(${item.id}, -1)">➖</button>
+        <button onclick="removeItem(${item.id})">❌</button>
+      </div>
+    `;
+
+    cartContainer.appendChild(div);
+  });
+
+  document.getElementById("cartTotal").innerText = total;
+}
+
+// CHANGE QTY
+function changeQty(id, change) {
+  cart = cart.map(item => {
+    if (item.id === id) {
+      item.qty += change;
+      if (item.qty < 1) item.qty = 1;
+    }
+    return item;
+  });
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+  renderCart();
+}
+
+// REMOVE
+function removeItem(id) {
+  cart = cart.filter(item => item.id !== id);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  renderCart();
+  showNotification("Item removed!");
+}
+
+// CHECKOUT
+function checkout() {
+  if (cart.length === 0) {
+    showNotification("Cart is empty!");
+    return;
+  }
+
+  cart = [];
+  localStorage.setItem("cart", JSON.stringify(cart));
+  renderCart();
+
+  showNotification("Payment successful! 🎉");
+}
+
+// INIT
+renderProducts();
+renderCart();
+
+// LOGIN
+const loginForm = document.getElementById("loginForm");
+
+if (loginForm) {
+  loginForm.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    if (email === "student@gmail.com" && password === "1234") {
+      showNotification("Login successful!");
+      setTimeout(() => window.location.href = "index.html", 1000);
+    } else {
+      document.getElementById("loginError").innerText = "Invalid credentials!";
+    }
+  });
+}
+
+// PROFILE
+const profileForm = document.getElementById("profileForm");
+
+if (profileForm) {
+  const saved = JSON.parse(localStorage.getItem("profile")) || {};
+
+  document.getElementById("name").value = saved.name || "";
+  document.getElementById("emailProfile").value = saved.email || "";
+  document.getElementById("course").value = saved.course || "";
+
+  profileForm.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const data = {
+      name: document.getElementById("name").value,
+      email: document.getElementById("emailProfile").value,
+      course: document.getElementById("course").value
+    };
+
+    localStorage.setItem("profile", JSON.stringify(data));
+    showNotification("Profile saved!");
+  });
+}
+
+// SETTINGS
+function clearData() {
+  localStorage.clear();
+  showNotification("All data cleared!");
+}

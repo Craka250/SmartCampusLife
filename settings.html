@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings - Smart Campus</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="container">
+
+  <aside class="sidebar">
+    <h2>🎓 Campus</h2>
+    <nav>
+      <a href="index.html">Dashboard</a>
+      <a href="tasks.html">Tasks</a>
+      <a href="library.html">Library</a>
+      <a href="store.html">Store</a>
+      <a href="profile.html">Profile</a>
+      <a class="active" href="settings.html">Settings</a>
+    </nav>
+  </aside>
+
+  <main class="main">
+
+    <header class="topbar">
+      <h2>⚙️ Settings</h2>
+    </header>
+
+    <section class="task-form">
+      <h3>Preferences</h3>
+
+      <button onclick="toggleDarkMode()">🌙 Toggle Dark Mode</button>
+      <button onclick="clearData()">🗑 Reset All Data</button>
+
+    </section>
+
+  </main>
+</div>
+
+<div id="toast"></div>
+
+<script src="js/script.js"></script>
+</body>
+</html>
