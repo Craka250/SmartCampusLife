@@ -161,3 +161,110 @@ function updateStats() {
 
 // INIT
 renderTasks();
+
+// LIBRARY SYSTEM
+let books = JSON.parse(localStorage.getItem("books")) || [
+  { id: 1, title: "Human Computer Interaction", author: "Alan Dix", borrowed: false },
+  { id: 2, title: "Database Systems", author: "Elmasri", borrowed: false },
+  { id: 3, title: "JavaScript Basics", author: "John Doe", borrowed: false },
+  { id: 4, title: "Computer Networks", author: "Tanenbaum", borrowed: false }
+];
+
+let bookFilter = "all";
+
+const booksContainer = document.getElementById("booksContainer");
+const searchBook = document.getElementById("searchBook");
+
+// RENDER BOOKS
+function renderBooks() {
+  if (!booksContainer) return;
+
+  let filtered = books;
+
+  // FILTER
+  if (bookFilter === "available") {
+    filtered = books.filter(b => !b.borrowed);
+  } else if (bookFilter === "borrowed") {
+    filtered = books.filter(b => b.borrowed);
+  }
+
+  // SEARCH
+  const search = searchBook?.value.toLowerCase() || "";
+  filtered = filtered.filter(b => b.title.toLowerCase().includes(search));
+
+  booksContainer.innerHTML = "";
+
+  if (filtered.length === 0) {
+    booksContainer.innerHTML = "<p>No books found.</p>";
+    return;
+  }
+
+  filtered.forEach(book => {
+    const div = document.createElement("div");
+    div.className = `book ${book.borrowed ? "borrowed" : ""}`;
+
+    div.innerHTML = `
+      <div class="book-info">
+        <strong>${book.title}</strong>
+        <small>${book.author}</small>
+      </div>
+
+      <div>
+        ${
+          book.borrowed
+            ? `<button class="return-btn" onclick="returnBook(${book.id})">Return</button>`
+            : `<button class="borrow-btn" onclick="borrowBook(${book.id})">Borrow</button>`
+        }
+      </div>
+    `;
+
+    booksContainer.appendChild(div);
+  });
+
+  updateBookStats();
+}
+
+// BORROW
+function borrowBook(id) {
+  books = books.map(b =>
+    b.id === id ? { ...b, borrowed: true } : b
+  );
+
+  localStorage.setItem("books", JSON.stringify(books));
+  renderBooks();
+  showNotification("Book borrowed!");
+}
+
+// RETURN
+function returnBook(id) {
+  books = books.map(b =>
+    b.id === id ? { ...b, borrowed: false } : b
+  );
+
+  localStorage.setItem("books", JSON.stringify(books));
+  renderBooks();
+  showNotification("Book returned!");
+}
+
+// FILTER
+function filterBooks(type) {
+  bookFilter = type;
+  renderBooks();
+}
+
+// SEARCH
+if (searchBook) {
+  searchBook.addEventListener("input", renderBooks);
+}
+
+// STATS
+function updateBookStats() {
+  document.getElementById("totalBooks").innerText = books.length;
+  document.getElementById("availableBooks").innerText =
+    books.filter(b => !b.borrowed).length;
+  document.getElementById("borrowedBooks").innerText =
+    books.filter(b => b.borrowed).length;
+}
+
+// INIT
+renderBooks();

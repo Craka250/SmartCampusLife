@@ -246,3 +246,41 @@ button:hover {
   margin-right: 10px;
   transform: scale(1.2);
 }
+
+/* Book Card */
+.book {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.book:last-child {
+  border-bottom: none;
+}
+
+.book-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.borrowed {
+  opacity: 0.6;
+}
+
+/* Buttons */
+.borrow-btn {
+  background: #2563eb;
+  color: white;
+}
+
+.return-btn {
+  background: #16a34a;
+  color: white;
+}
+
+/* Dark Mode */
+.dark .book {
+  border-color: #334155;
+}

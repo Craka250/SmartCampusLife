@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus Store</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <h2>🎓 Campus</h2>
+    <nav>
+      <a href="index.html">Dashboard</a>
+      <a href="tasks.html">Tasks</a>
+      <a href="library.html">Library</a>
+      <a class="active" href="store.html">Store</a>
+      <a href="profile.html">Profile</a>
+      <a href="settings.html">Settings</a>
+    </nav>
+  </aside>
+
+  <!-- Main -->
+  <main class="main">
+
+    <!-- Topbar -->
+    <header class="topbar">
+      <h2>🛒 Campus Store</h2>
+      <button onclick="toggleDarkMode()">🌙</button>
+    </header>
+
+    <!-- Products -->
+    <section class="cards" id="productsContainer"></section>
+
+    <!-- Cart -->
+    <section class="task-list">
+      <h3>🧾 Your Cart</h3>
+      <div id="cartContainer"></div>
+
+      <h3>Total: KES <span id="cartTotal">0</span></h3>
+
+      <button onclick="checkout()">✅ Checkout</button>
+    </section>
+
+  </main>
+</div>
+
+<div id="toast"></div>
+
+<script src="js/script.js"></script>
+</body>
+</html>

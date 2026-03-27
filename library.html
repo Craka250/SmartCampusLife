@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library - Smart Campus</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <h2>🎓 Campus</h2>
+    <nav>
+      <a href="index.html">Dashboard</a>
+      <a href="tasks.html">Tasks</a>
+      <a class="active" href="library.html">Library</a>
+      <a href="store.html">Store</a>
+      <a href="profile.html">Profile</a>
+      <a href="settings.html">Settings</a>
+    </nav>
+  </aside>
+
+  <!-- Main -->
+  <main class="main">
+
+    <!-- Topbar -->
+    <header class="topbar">
+      <h2>📚 Smart Library</h2>
+      <button onclick="toggleDarkMode()">🌙</button>
+    </header>
+
+    <!-- Controls -->
+    <section class="actions">
+      <input type="text" id="searchBook" placeholder="🔍 Search books...">
+
+      <div class="action-buttons">
+        <button onclick="filterBooks('all')">All</button>
+        <button onclick="filterBooks('available')">Available</button>
+        <button onclick="filterBooks('borrowed')">Borrowed</button>
+      </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="cards">
+      <div class="card"><h3>Total Books</h3><p id="totalBooks">0</p></div>
+      <div class="card"><h3>Available</h3><p id="availableBooks">0</p></div>
+      <div class="card"><h3>Borrowed</h3><p id="borrowedBooks">0</p></div>
+    </section>
+
+    <!-- Book List -->
+    <section class="task-list">
+      <h3>Library Collection</h3>
+      <div id="booksContainer"></div>
+    </section>
+
+  </main>
+</div>
+
+<div id="toast"></div>
+
+<script src="js/script.js"></script>
+</body>
+</html>
