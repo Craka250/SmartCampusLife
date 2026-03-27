@@ -32,12 +32,30 @@
       <button onclick="toggleDarkMode()">🌙</button>
     </header>
 
+    <!-- Stats -->
+    <section class="cards">
+      <div class="card"><h3>Total</h3><p id="totalTasks">0</p></div>
+      <div class="card"><h3>Completed</h3><p id="completedTasks">0</p></div>
+      <div class="card"><h3>Pending</h3><p id="pendingTasks">0</p></div>
+    </section>
+
+    <!-- Controls -->
+    <section class="actions">
+      <input type="text" id="searchTask" placeholder="🔍 Search tasks...">
+      
+      <div class="action-buttons">
+        <button onclick="filterTasks('all')">All</button>
+        <button onclick="filterTasks('completed')">Completed</button>
+        <button onclick="filterTasks('pending')">Pending</button>
+      </div>
+    </section>
+
     <!-- Add Task -->
     <section class="task-form">
-      <h3>Add New Task</h3>
+      <h3>Add / Edit Task</h3>
       <form id="taskForm">
+        <input type="hidden" id="taskId">
         <input type="text" id="taskTitle" placeholder="Task title" required>
-        
         <input type="date" id="taskDate" required>
 
         <select id="taskPriority">
@@ -46,7 +64,7 @@
           <option value="high">High Priority</option>
         </select>
 
-        <button type="submit">➕ Add Task</button>
+        <button type="submit">💾 Save Task</button>
       </form>
     </section>
 
@@ -59,7 +77,6 @@
   </main>
 </div>
 
-<!-- Toast -->
 <div id="toast"></div>
 
 <script src="js/script.js"></script>
