@@ -466,3 +466,11 @@ function clearData() {
   localStorage.clear();
   showNotification("All data cleared!");
 }
+
+function logout() {
+  localStorage.removeItem("loggedInUser");
+  showNotification("Logged out!");
+  setTimeout(() => {
+    window.location.href = "login.html";
+  }, 1000);
+}
