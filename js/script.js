@@ -461,6 +461,14 @@ if (profileForm) {
   });
 }
 
+// SHOW USER NAME
+const userName = document.getElementById("userName");
+const userData = JSON.parse(localStorage.getItem("loggedInUser"));
+
+if (userName && userData) {
+  userName.innerText = "👋 " + userData.name;
+}
+
 // SETTINGS
 function clearData() {
   localStorage.clear();
