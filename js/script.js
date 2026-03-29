@@ -1,3 +1,15 @@
+// AUTH GUARD (Protect Pages)
+(function () {
+  const publicPages = ["login.html"];
+  const currentPage = window.location.pathname.split("/").pop();
+
+  const user = JSON.parse(localStorage.getItem("loggedInUser"));
+
+  if (!user && !publicPages.includes(currentPage)) {
+    window.location.href = "login.html";
+  }
+})();
+
 // Toast
 function showNotification(message) {
   const toast = document.getElementById("toast");
