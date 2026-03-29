@@ -10,6 +10,14 @@
   }
 })();
 
+// Prevent logged-in user from seeing login page again
+if (window.location.pathname.includes("login.html")) {
+  const user = JSON.parse(localStorage.getItem("loggedInUser"));
+  if (user) {
+    window.location.href = "index.html";
+  }
+}
+
 // Toast
 function showNotification(message) {
   const toast = document.getElementById("toast");
