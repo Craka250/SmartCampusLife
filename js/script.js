@@ -388,19 +388,37 @@ function checkout() {
 renderProducts();
 renderCart();
 
-// LOGIN
+// LOGIN SYSTEM
 const loginForm = document.getElementById("loginForm");
 
 if (loginForm) {
   loginForm.addEventListener("submit", function(e) {
     e.preventDefault();
 
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
 
+    if (!email || !password) {
+      document.getElementById("loginError").innerText = "All fields required!";
+      return;
+    }
+
+    // SIMPLE AUTH (can be upgraded later)
     if (email === "student@gmail.com" && password === "1234") {
+
+      const user = {
+        email,
+        name: "Student"
+      };
+
+      localStorage.setItem("loggedInUser", JSON.stringify(user));
+
       showNotification("Login successful!");
-      setTimeout(() => window.location.href = "index.html", 1000);
+
+      setTimeout(() => {
+        window.location.href = "index.html";
+      }, 1000);
+
     } else {
       document.getElementById("loginError").innerText = "Invalid credentials!";
     }
