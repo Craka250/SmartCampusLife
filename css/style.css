@@ -330,3 +330,18 @@ button:hover {
   flex-direction: column;
   gap: 15px;
 }
+
+.error {
+  color: red;
+  font-size: 14px;
+  text-align: center;
+}
+
+.auth-box h2 {
+  text-align: center;
+}
+
+.auth-box p {
+  text-align: center;
+  color: gray;
+}
