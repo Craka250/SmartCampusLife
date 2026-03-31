@@ -10,6 +10,7 @@
 <body>
 
 <div class="container">
+  <div id="overlay" onclick="toggleMenu()"></div>
 
   <!-- Sidebar -->
   <aside class="sidebar">
@@ -33,6 +34,10 @@
 
     <!-- Topbar -->
     <header class="topbar">
+      <button class="menu-toggle" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+      </button>
+
       <input type="text" placeholder="🔍 Search anything...">
       <div class="top-actions">
         <button onclick="toggleDarkMode()" aria-label="Toggle dark mode" title="Toggle dark mode">
