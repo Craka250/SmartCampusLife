@@ -49,6 +49,7 @@
 
   <main class="main">
 
+    <!-- Topbar -->
     <header class="topbar">
       <button class="menu-toggle"
               onclick="toggleMenu()"
@@ -59,14 +60,78 @@
       <h2>⚙️ Settings</h2>
     </header>
 
-    <section class="task-form">
-      <h3>Preferences</h3>
+    <!-- Account Settings -->
+    <section class="panel">
+      <h3><i class="fas fa-user-cog"></i> Account Settings</h3>
 
-      <button onclick="toggleDarkMode()" aria-label="Toggle dark mode" title="Toggle dark mode">
-          <i class="fas fa-moon"></i>
-      </button>
-      <button onclick="clearData()">🗑 Reset All Data</button>
+      <div class="task-form">
+        <form>
+          <input type="text" placeholder="Full Name">
+          <input type="email" placeholder="Email Address">
+          <input type="password" placeholder="New Password">
+          <button type="button" onclick="showNotification('Profile updated!')">
+            Save Changes
+          </button>
+        </form>
+      </div>
+    </section>
 
+    <!-- Preferences -->
+    <section class="panel">
+      <h3><i class="fas fa-sliders-h"></i> Preferences</h3>
+
+      <div class="action-buttons">
+        <button onclick="toggleDarkMode()">
+          <i class="fas fa-moon"></i> Toggle Dark Mode
+        </button>
+
+        <button onclick="showNotification('Notifications updated!')">
+          <i class="fas fa-bell"></i> Enable Notifications
+        </button>
+
+        <button onclick="showNotification('Language changed!')">
+          <i class="fas fa-globe"></i> Change Language
+        </button>
+      </div>
+    </section>
+
+    <!-- Security -->
+    <section class="panel">
+      <h3><i class="fas fa-shield-alt"></i> Security</h3>
+
+      <div class="action-buttons">
+        <button onclick="showNotification('2FA Enabled!')">
+          🔐 Enable 2FA
+        </button>
+
+        <button onclick="showNotification('Password reset link sent!')">
+          🔑 Reset Password
+        </button>
+      </div>
+    </section>
+
+    <!-- System Settings -->
+    <section class="panel">
+      <h3><i class="fas fa-database"></i> System</h3>
+
+      <div class="action-buttons">
+        <button onclick="clearData()">
+          🗑 Reset All Data
+        </button>
+
+        <button onclick="showNotification('Backup created!')">
+          💾 Backup Data
+        </button>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="panel">
+      <h3><i class="fas fa-info-circle"></i> About</h3>
+
+      <p><strong>App Name:</strong> Smart Campus Life</p>
+      <p><strong>Version:</strong> 1.0.0</p>
+      <p><strong>Developer:</strong> You 😄</p>
     </section>
 
   </main>
