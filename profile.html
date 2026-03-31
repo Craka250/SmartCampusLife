@@ -37,17 +37,41 @@
       </button>
     </header>
 
-    <section class="task-form">
-      <h3>Your Information</h3>
+    <section class="profile-card">
+  <div class="profile-header">
+    <img src="https://i.pravatar.cc/100" alt="avatar">
+    <h3 id="profileName">Student</h3>
+    <p id="profileEmail">student@gmail.com</p>
+  </div>
 
-      <form id="profileForm">
-        <input type="text" id="name" placeholder="Full Name" required>
-        <input type="email" id="emailProfile" placeholder="Email" required>
-        <input type="text" id="course" placeholder="Course">
-        
-        <button type="submit">💾 Save Profile</button>
-      </form>
-    </section>
+  <div class="profile-stats">
+    <div>
+      <i class="fas fa-tasks"></i>
+      <p id="profileTasks">0 Tasks</p>
+    </div>
+    <div>
+      <i class="fas fa-book"></i>
+      <p id="profileBooks">0 Books</p>
+    </div>
+    <div>
+      <i class="fas fa-shopping-cart"></i>
+      <p id="profileCart">0 Items</p>
+    </div>
+  </div>
+</section>
+
+<section class="task-form">
+  <h3>Edit Profile</h3>
+
+  <form id="profileForm">
+    <input type="text" id="name" placeholder="Full Name" required>
+    <input type="email" id="emailProfile" placeholder="Email" required>
+    <input type="text" id="course" placeholder="Course">
+    <input type="text" id="year" placeholder="Year of Study">
+
+    <button type="submit">💾 Save Profile</button>
+  </form>
+</section>
 
   </main>
 </div>
