@@ -457,3 +457,56 @@ button:hover {
   font-size: 20px;
   color: #2563eb;
 }
+
+/* MOBILE MENU BUTTON */
+.menu-toggle {
+  display: none;
+  font-size: 20px;
+  background: none;
+  color: #2563eb;
+}
+
+/* OVERLAY */
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: none;
+  z-index: 998;
+}
+
+/* MOBILE SIDEBAR */
+@media(max-width: 768px){
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .sidebar {
+    position: fixed;
+    left: -260px;
+    top: 0;
+    height: 100%;
+    z-index: 999;
+    transition: 0.3s;
+  }
+
+  .sidebar.active {
+    left: 0;
+  }
+
+  #overlay.active {
+    display: block;
+  }
+
+  .topbar {
+    gap: 10px;
+  }
+
+  .topbar input {
+    width: 100%;
+  }
+}
