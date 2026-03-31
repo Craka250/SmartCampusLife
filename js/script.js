@@ -647,7 +647,7 @@ function loadSchedule() {
 }
 
 loadSchedule();
-
+/*
 function loadProfileStats() {
   const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
   const books = JSON.parse(localStorage.getItem("books")) || [];
@@ -658,8 +658,25 @@ function loadProfileStats() {
     books.filter(b => b.borrowed).length + " Books";
   document.getElementById("profileCart").innerText =
     cart.length + " Items";
-}
+} */
 
+function loadProfileStats() {
+  const tasksEl = document.getElementById("profileTasks");
+  const booksEl = document.getElementById("profileBooks");
+  const cartEl = document.getElementById("profileCart");
+
+  // STOP if not on profile page
+  if (!tasksEl || !booksEl || !cartEl) return;
+
+  const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+  const books = JSON.parse(localStorage.getItem("books")) || [];
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  tasksEl.innerText = tasks.length + " Tasks";
+  booksEl.innerText = books.filter(b => b.borrowed).length + " Books";
+  cartEl.innerText = cart.length + " Items";
+}
+/*
 function loadProfileInfo() {
   const user = JSON.parse(localStorage.getItem("loggedInUser"));
   const profile = JSON.parse(localStorage.getItem("profile")) || {};
@@ -667,6 +684,21 @@ function loadProfileInfo() {
   if (user) {
     document.getElementById("profileName").innerText = profile.name || user.name;
     document.getElementById("profileEmail").innerText = profile.email || user.email;
+  }
+} */
+
+function loadProfileInfo() {
+  const nameEl = document.getElementById("profileName");
+  const emailEl = document.getElementById("profileEmail");
+
+  if (!nameEl || !emailEl) return;
+
+  const user = JSON.parse(localStorage.getItem("loggedInUser"));
+  const profile = JSON.parse(localStorage.getItem("profile")) || {};
+
+  if (user) {
+    nameEl.innerText = profile.name || user.name;
+    emailEl.innerText = profile.email || user.email;
   }
 }
 
