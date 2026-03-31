@@ -647,3 +647,28 @@ function loadSchedule() {
 }
 
 loadSchedule();
+
+function loadProfileStats() {
+  const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+  const books = JSON.parse(localStorage.getItem("books")) || [];
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  document.getElementById("profileTasks").innerText = tasks.length + " Tasks";
+  document.getElementById("profileBooks").innerText =
+    books.filter(b => b.borrowed).length + " Books";
+  document.getElementById("profileCart").innerText =
+    cart.length + " Items";
+}
+
+function loadProfileInfo() {
+  const user = JSON.parse(localStorage.getItem("loggedInUser"));
+  const profile = JSON.parse(localStorage.getItem("profile")) || {};
+
+  if (user) {
+    document.getElementById("profileName").innerText = profile.name || user.name;
+    document.getElementById("profileEmail").innerText = profile.email || user.email;
+  }
+}
+
+loadProfileStats();
+loadProfileInfo();
