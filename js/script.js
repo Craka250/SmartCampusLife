@@ -490,3 +490,45 @@ function logout() {
     window.location.href = "login.html";
   }, 1000);
 }
+
+// DASHBOARD REAL DATA
+function loadDashboard() {
+
+  // TASKS
+  const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+  const pendingTasks = tasks.filter(t => !t.completed).length;
+
+  // BOOKS
+  const books = JSON.parse(localStorage.getItem("books")) || [];
+  const borrowedBooks = books.filter(b => b.borrowed).length;
+
+  // CART
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  let total = 0;
+  let totalItems = 0;
+
+  const products = [
+    { id: 1, name: "Notebook", price: 100 },
+    { id: 2, name: "Pen", price: 20 },
+    { id: 3, name: "Backpack", price: 1500 },
+    { id: 4, name: "Calculator", price: 800 }
+  ];
+
+  cart.forEach(item => {
+    const product = products.find(p => p.id === item.id);
+    total += product.price * item.qty;
+    totalItems += item.qty;
+  });
+
+  // UPDATE UI
+  const booksEl = document.getElementById("dashboardBooks");
+  const tasksEl = document.getElementById("dashboardTasks");
+  const cartEl = document.getElementById("dashboardCart");
+  const totalEl = document.getElementById("dashboardTotal");
+
+  if (booksEl) booksEl.innerText = borrowedBooks;
+  if (tasksEl) tasksEl.innerText = pendingTasks;
+  if (cartEl) cartEl.innerText = totalItems;
+  if (totalEl) totalEl.innerText = total;
+}
