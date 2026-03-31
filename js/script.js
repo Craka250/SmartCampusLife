@@ -583,3 +583,27 @@ function setGreeting() {
 }
 
 setGreeting();
+
+function loadSchedule() {
+  const list = document.getElementById("scheduleList");
+  if (!list) return;
+
+  const schedule = JSON.parse(localStorage.getItem("schedule")) || [
+    { time: "8:00 AM", title: "Database Class", icon: "fa-database" },
+    { time: "11:00 AM", title: "Programming Lab", icon: "fa-code" },
+    { time: "2:00 PM", title: "MIS Lecture", icon: "fa-chart-line" }
+  ];
+
+  list.innerHTML = "";
+
+  schedule.forEach(item => {
+    list.innerHTML += `
+      <li>
+        <i class="fas ${item.icon}"></i>
+        <strong>${item.time}</strong> - ${item.title}
+      </li>
+    `;
+  });
+}
+
+loadSchedule();
