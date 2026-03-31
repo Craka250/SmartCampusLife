@@ -15,16 +15,23 @@
   const publicPages = ["login.html"];
 
   let currentPage = window.location.pathname.split("/").pop();
-
-  // FIX: handle root path
-  if (currentPage === "") {
-    currentPage = "index.html";
-  }
+  if (currentPage === "") currentPage = "index.html";
 
   const user = JSON.parse(localStorage.getItem("loggedInUser"));
+  const loginTime = localStorage.getItem("loginTime");
 
-  if (!user && !publicPages.includes(currentPage)) {
-    window.location.href = "./index.html";
+  const SESSION_DURATION = 1000 * 60 * 30; // 30 minutes
+
+  // ❗ If session expired → logout automatically
+  if (loginTime && Date.now() - loginTime > SESSION_DURATION) {
+    localStorage.removeItem("loggedInUser");
+    localStorage.removeItem("loginTime");
+  }
+
+  const updatedUser = JSON.parse(localStorage.getItem("loggedInUser"));
+
+  if (!updatedUser && !publicPages.includes(currentPage)) {
+    window.location.href = "./login.html";
   }
 })();
 
