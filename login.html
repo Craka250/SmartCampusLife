@@ -4,25 +4,42 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login - Smart Campus</title>
+
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 </head>
 <body>
 
 <div class="auth-container">
 
   <form id="loginForm" class="auth-box">
-    <h2>🎓 Smart Campus</h2>
-    <p>Login to continue</p>
 
-    <input type="email" id="email" placeholder="Enter your email" required>
-    <input type="password" id="password" placeholder="Enter your password" required>
+    <div class="logo">
+      <i class="fas fa-graduation-cap"></i>
+      <h2>Smart Campus</h2>
+    </div>
 
-    <button type="submit">Login</button>
+    <p class="subtitle">Login to continue</p>
+
+    <div class="input-group">
+      <i class="fas fa-envelope"></i>
+      <input type="email" id="email" placeholder="Enter your email" required>
+    </div>
+
+    <div class="input-group">
+      <i class="fas fa-lock"></i>
+      <input type="password" id="password" placeholder="Enter your password" required>
+    </div>
+
+    <button type="submit" class="btn-primary">
+      <i class="fas fa-sign-in-alt"></i> Login
+    </button>
 
     <p id="loginError" class="error"></p>
 
     <small>Use: student@gmail.com / 1234</small>
+
   </form>
 
 </div>
