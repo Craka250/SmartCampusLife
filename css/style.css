@@ -525,3 +525,7 @@ button:hover {
     width: 100%;
   }
 }
+
+.sidebar {
+  overflow-y: auto;
+}
