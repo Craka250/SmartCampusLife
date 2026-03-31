@@ -529,3 +529,9 @@ button:hover {
 .sidebar {
   overflow-y: auto;
 }
+
+.sidebar a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
