@@ -1,4 +1,5 @@
 // AUTH GUARD (Protect Pages)
+/*
 (function () {
   const publicPages = ["login.html"];
   const currentPage = window.location.pathname.split("/").pop();
@@ -8,13 +9,30 @@
   if (!user && !publicPages.includes(currentPage)) {
     window.location.href = "login.html";
   }
+})(); */
+
+(function () {
+  const publicPages = ["login.html"];
+
+  let currentPage = window.location.pathname.split("/").pop();
+
+  // FIX: handle root path
+  if (currentPage === "") {
+    currentPage = "index.html";
+  }
+
+  const user = JSON.parse(localStorage.getItem("loggedInUser"));
+
+  if (!user && !publicPages.includes(currentPage)) {
+    window.location.href = "./login.html";
+  }
 })();
 
 // Prevent logged-in user from seeing login page again
 if (window.location.pathname.includes("login.html")) {
   const user = JSON.parse(localStorage.getItem("loggedInUser"));
   if (user) {
-    window.location.href = "index.html";
+    window.location.href = "./login.html";
   }
 }
 
@@ -436,7 +454,7 @@ if (loginForm) {
       showNotification("Login successful!");
 
       setTimeout(() => {
-        window.location.href = "index.html";
+        window.location.href = "./login.html";
       }, 1000);
 
     } else {
@@ -487,7 +505,7 @@ function logout() {
   localStorage.removeItem("loggedInUser");
   showNotification("Logged out!");
   setTimeout(() => {
-    window.location.href = "login.html";
+    window.location.href = "./login.html";
   }, 1000);
 }
 
