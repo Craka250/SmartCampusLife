@@ -538,3 +538,30 @@ setInterval(loadDashboard, 1000);
 
 // ALSO RUN ON LOAD
 loadDashboard();
+
+function loadActivity() {
+  const list = document.getElementById("activityList");
+  if (!list) return;
+
+  list.innerHTML = "";
+
+  const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+  const books = JSON.parse(localStorage.getItem("books")) || [];
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  tasks.slice(-2).forEach(t => {
+    list.innerHTML += `<li><i class="fas fa-tasks"></i> ${t.title}</li>`;
+  });
+
+  books.filter(b => b.borrowed).slice(-2).forEach(b => {
+    list.innerHTML += `<li><i class="fas fa-book"></i> Borrowed ${b.title}</li>`;
+  });
+
+  if (cart.length > 0) {
+    list.innerHTML += `<li><i class="fas fa-shopping-cart"></i> Cart updated</li>`;
+  }
+}
+
+// RUN
+setInterval(loadActivity, 2000);
+loadActivity();
