@@ -534,7 +534,7 @@ function loadDashboard() {
 }
 
 // AUTO REFRESH DASHBOARD
-setInterval(loadDashboard, 1000);
+window.addEventListener("storage", loadDashboard);
 
 // ALSO RUN ON LOAD
 loadDashboard();
