@@ -483,49 +483,27 @@ button:hover {
 
   .menu-toggle {
     display: block;
+    font-size: 22px;
+    background: none;
+    border: none;
+    color: #2563eb;
+    cursor: pointer;
+    z-index: 1100;
   }
 
   .sidebar {
     position: fixed;
-    left: -260px;
     top: 0;
-    height: 100%;
-    z-index: 999;
-    transition: 0.3s;
-  }
-
-  .sidebar.active {
-    left: 0;
-  }
-
-  #overlay.active {
-    display: block;
-  }
-
-  .topbar {
-    gap: 10px;
-  }
-
-  .topbar input {
-    width: 100%;
-  }
-}
-
-/* MOBILE SIDEBAR FIX */
-@media(max-width: 768px){
-
-  .sidebar {
-    position: fixed;
-    left: -260px;
-    top: 0;
+    left: -260px; /* hidden */
     width: 240px;
     height: 100%;
-    z-index: 1000;
-    transition: 0.3s;
+    background: #2563eb;
+    z-index: 1200;
+    transition: left 0.3s ease;
   }
 
   .sidebar.active {
-    left: 0;
+    left: 0; /* SHOW */
   }
 
   #overlay {
@@ -536,20 +514,14 @@ button:hover {
     height: 100%;
     background: rgba(0,0,0,0.5);
     display: none;
-    z-index: 999;
+    z-index: 1100;
   }
 
   #overlay.active {
     display: block;
   }
 
-  .menu-toggle {
-    background: none;
-    font-size: 20px;
-    cursor: pointer;
-  }
-
-  .topbar {
-    gap: 10px;
+  .topbar input {
+    width: 100%;
   }
 }
