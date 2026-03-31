@@ -565,3 +565,21 @@ function loadActivity() {
 // RUN
 setInterval(loadActivity, 2000);
 loadActivity();
+
+function setGreeting() {
+  const hour = new Date().getHours();
+  let greeting = "Welcome";
+
+  if (hour < 12) greeting = "Good Morning ☀️";
+  else if (hour < 18) greeting = "Good Afternoon 🌤";
+  else greeting = "Good Evening 🌙";
+
+  const el = document.getElementById("userName");
+  const user = JSON.parse(localStorage.getItem("loggedInUser"));
+
+  if (el && user) {
+    el.innerText = `${greeting}, ${user.name}`;
+  }
+}
+
+setGreeting();
