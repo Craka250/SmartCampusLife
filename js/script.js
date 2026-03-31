@@ -24,7 +24,7 @@
   const user = JSON.parse(localStorage.getItem("loggedInUser"));
 
   if (!user && !publicPages.includes(currentPage)) {
-    window.location.href = "./login.html";
+    window.location.href = "./index.html";
   }
 })();
 
@@ -32,7 +32,7 @@
 if (window.location.pathname.includes("login.html")) {
   const user = JSON.parse(localStorage.getItem("loggedInUser"));
   if (user) {
-    window.location.href = "./login.html";
+    window.location.href = "./index.html";
   }
 }
 
@@ -454,7 +454,7 @@ if (loginForm) {
       showNotification("Login successful!");
 
       setTimeout(() => {
-        window.location.href = "./login.html";
+        window.location.href = "./index.html";
       }, 1000);
 
     } else {
@@ -505,7 +505,7 @@ function logout() {
   localStorage.removeItem("loggedInUser");
   showNotification("Logged out!");
   setTimeout(() => {
-    window.location.href = "./login.html";
+    window.location.href = "./index.html";
   }, 1000);
 }
 
