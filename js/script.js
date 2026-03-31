@@ -450,6 +450,7 @@ if (loginForm) {
       };
 
       localStorage.setItem("loggedInUser", JSON.stringify(user));
+      localStorage.setItem("loginTime", Date.now());
 
       showNotification("Login successful!");
 
