@@ -532,3 +532,9 @@ function loadDashboard() {
   if (cartEl) cartEl.innerText = totalItems;
   if (totalEl) totalEl.innerText = total;
 }
+
+// AUTO REFRESH DASHBOARD
+setInterval(loadDashboard, 1000);
+
+// ALSO RUN ON LOAD
+loadDashboard();
