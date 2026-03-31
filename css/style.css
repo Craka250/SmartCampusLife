@@ -546,3 +546,27 @@ button:hover {
   align-items: center;
   gap: 10px;
 }
+
+.panel {
+  margin-bottom: 20px;
+}
+
+.panel h3 {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.panel p {
+  margin: 5px 0;
+}
+
+.task-form form {
+  display: grid;
+  gap: 10px;
+}
+
+.task-form input {
+  width: 100%;
+}
