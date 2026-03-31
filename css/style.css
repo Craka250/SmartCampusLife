@@ -345,3 +345,78 @@ button:hover {
   text-align: center;
   color: gray;
 }
+
+/* LOGIN UI IMPROVEMENTS */
+.auth-box {
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.logo {
+  text-align: center;
+}
+
+.logo i {
+  font-size: 40px;
+  color: #2563eb;
+}
+
+.subtitle {
+  text-align: center;
+  color: gray;
+}
+
+/* INPUT WITH ICON */
+.input-group {
+  display: flex;
+  align-items: center;
+  background: #f1f5f9;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.input-group i {
+  margin-right: 10px;
+  color: #2563eb;
+}
+
+.input-group input {
+  border: none;
+  outline: none;
+  background: transparent;
+  width: 100%;
+}
+
+/* PRIMARY BUTTON */
+.btn-primary {
+  background: #2563eb;
+  color: white;
+  font-weight: bold;
+}
+
+.btn-primary:hover {
+  background: #1d4ed8;
+}
+
+/* SIDEBAR ICON SPACING */
+.sidebar a i {
+  margin-right: 10px;
+}
+
+/* LOGOUT BUTTON */
+.logout-btn {
+  margin-top: 20px;
+  width: 100%;
+  background: #ef4444;
+  color: white;
+}
+
+.logout-btn:hover {
+  background: #dc2626;
+}
