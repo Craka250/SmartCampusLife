@@ -538,7 +538,7 @@ window.addEventListener("storage", loadDashboard);
 
 // ALSO RUN ON LOAD
 loadDashboard();
-
+/*
 function loadActivity() {
   const list = document.getElementById("activityList");
   if (!list) return;
@@ -559,6 +559,46 @@ function loadActivity() {
 
   if (cart.length > 0) {
     list.innerHTML += `<li><i class="fas fa-shopping-cart"></i> Cart updated</li>`;
+  }
+} */
+
+  function loadActivity() {
+  const list = document.getElementById("activityList");
+  if (!list) return;
+
+  list.innerHTML = "";
+
+  const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+  const books = JSON.parse(localStorage.getItem("books")) || [];
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  tasks.slice(-3).forEach(t => {
+    list.innerHTML += `
+      <li>
+        <i class="fas fa-tasks"></i>
+        ${t.completed ? "Completed" : "Added"} task: ${t.title}
+      </li>
+    `;
+  });
+
+  books.slice(-2).forEach(b => {
+    if (b.borrowed) {
+      list.innerHTML += `
+        <li>
+          <i class="fas fa-book"></i>
+          Borrowed: ${b.title}
+        </li>
+      `;
+    }
+  });
+
+  if (cart.length > 0) {
+    list.innerHTML += `
+      <li>
+        <i class="fas fa-shopping-cart"></i>
+        Cart updated (${cart.length} items)
+      </li>
+    `;
   }
 }
 
