@@ -420,3 +420,12 @@ button:hover {
 .logout-btn:hover {
   background: #dc2626;
 }
+
+.card h3 i {
+  margin-right: 8px;
+  color: #2563eb;
+}
+
+.dark .card h3 i {
+  color: #22d3ee;
+}
