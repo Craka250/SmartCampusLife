@@ -4,7 +4,7 @@
   const publicPages = ["login.html"];
   const currentPage = window.location.pathname.split("/").pop();
 
-  const user = JSON.parse(localStorage.getItem("loggedInUser"));
+  ("loggedInUser"));
 
   if (!user && !publicPages.includes(currentPage)) {
     window.location.href = "login.html";
@@ -17,27 +17,16 @@
   let currentPage = window.location.pathname.split("/").pop();
   if (currentPage === "") currentPage = "index.html";
 
-  const user = JSON.parse(localStorage.getItem("loggedInUser"));
-  const loginTime = localStorage.getItem("loginTime");
+  const user = JSON.parse(sessionStorage.getItem("loggedInUser"));
 
-  const SESSION_DURATION = 1000 * 60 * 30; // 30 minutes
-
-  // ❗ If session expired → logout automatically
-  if (loginTime && Date.now() - loginTime > SESSION_DURATION) {
-    localStorage.removeItem("loggedInUser");
-    localStorage.removeItem("loginTime");
-  }
-
-  const updatedUser = JSON.parse(localStorage.getItem("loggedInUser"));
-
-  if (!updatedUser && !publicPages.includes(currentPage)) {
+  if (!user && !publicPages.includes(currentPage)) {
     window.location.href = "./login.html";
   }
 })();
 
 // Prevent logged-in user from seeing login page again
 if (window.location.pathname.includes("login.html")) {
-  const user = JSON.parse(localStorage.getItem("loggedInUser"));
+  const user = JSON.parse(sessionStorage.getItem("loggedInUser"));
   if (user) {
     window.location.href = "./index.html";
   }
@@ -456,8 +445,7 @@ if (loginForm) {
         name: "Student"
       };
 
-      localStorage.setItem("loggedInUser", JSON.stringify(user));
-      localStorage.setItem("loginTime", Date.now());
+      sessionStorage.setItem("loggedInUser", JSON.stringify(user));
 
       showNotification("Login successful!");
 
@@ -497,7 +485,7 @@ if (profileForm) {
 
 // SHOW USER NAME
 const userName = document.getElementById("userName");
-const userData = JSON.parse(localStorage.getItem("loggedInUser"));
+const userData = JSON.parse(sessionStorage.getItem("loggedInUser"));
 
 if (userName && userData) {
   userName.innerText = "👋 " + userData.name;
@@ -510,10 +498,10 @@ function clearData() {
 }
 
 function logout() {
-  localStorage.removeItem("loggedInUser");
+  sessionStorage.removeItem("loggedInUser");
   showNotification("Logged out!");
   setTimeout(() => {
-    window.location.href = "./index.html";
+    window.location.href = "./login.html";
   }, 1000);
 }
 
@@ -641,7 +629,7 @@ function setGreeting() {
   else greeting = "Good Evening 🌙";
 
   const el = document.getElementById("userName");
-  const user = JSON.parse(localStorage.getItem("loggedInUser"));
+  const user = JSON.parse(sessionStorage.getItem("loggedInUser"));
 
   if (el && user) {
     el.innerText = `${greeting}, ${user.name}`;
@@ -719,7 +707,7 @@ function loadProfileInfo() {
 
   if (!nameEl || !emailEl) return;
 
-  const user = JSON.parse(localStorage.getItem("loggedInUser"));
+  const user = JSON.parse(sessionStorage.getItem("loggedInUser"));
   const profile = JSON.parse(localStorage.getItem("profile")) || {};
 
   if (user) {
