@@ -438,7 +438,7 @@ if (loginForm) {
     }
 
     // SIMPLE AUTH (can be upgraded later)
-    if (email === "student@gmail.com" && password === "1234") {
+    if (email === "student@gmail.com" && password === "1234@student") {
 
       const user = {
         email,
